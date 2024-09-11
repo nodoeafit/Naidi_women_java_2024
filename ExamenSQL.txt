@@ -2,8 +2,8 @@ Grupo 2
 
 ¿Qué comando elimina permanentemente una tabla de la base de datos? (1 pt)
 
-a) DROP
-b) DELETE
+a) DROP 
+b) DELETE x
 c) TRUNCATE
 d) REMOVE 
 
@@ -12,10 +12,10 @@ d) REMOVE 
 
 a) DELETE
 b) TRUNCATE
-c) DROP
+c) DROP x
 d) REMOVE 
 
 
 Completa el query para eliminar la tabla productos: (3 pt) 
 
-______ TABLE productos;
+REMOVE TABLE productos;
