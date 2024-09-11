@@ -1,0 +1,19 @@
+Grupo 6
+
+¿Qué comando se utiliza para consultar datos de una tabla en SQL? (1 pt)
+
+a) SELECT
+b) INSERT
+c) UPDATE
+d) DELETE 
+
+¿Qué cláusula se utiliza para filtrar resultados en una consulta SQL? (1 pt)
+
+a) ORDER BY
+b) WHERE
+c) GROUP BY
+d) JOIN 
+
+Completa el query para consultar todos los registros de la tabla empleados que tienen un salario mayor a 3000: (3 pt) 
+
+SELECT * FROM empleados ______ salario > 3000;
