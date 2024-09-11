@@ -3,18 +3,18 @@ Grupo 3
 ¿Qué comando se utiliza para insertar un nuevo registro en una tabla? (1 pt)
 
 a) SELECT
-b) INSERT
+b) INSERT x
 c) UPDATE
 d) ALTER 
 
 ¿Qué comando se utiliza para modificar datos existentes en una tabla? (1 pt)
 
 a) INSERT
-b) UPDATE
+b) UPDATE x
 c) SELECT
 d) DELETE 
 
 Completa el query para insertar un nuevo cliente en la tabla clientes: (3 pt) 
 
-______ INTO clientes (id, nombre, edad)
+INSERT INTO clientes (id, nombre, edad)
 VALUES (1, 'Juan', 30);
