@@ -1,0 +1,21 @@
+Grupo 2
+
+¿Qué comando elimina permanentemente una tabla de la base de datos? (1 pt)
+
+a) DROP
+b) DELETE
+c) TRUNCATE
+d) REMOVE 
+
+
+¿Qué comando se utiliza para eliminar todos los datos de una tabla, pero conservar su estructura? (1 pt)
+
+a) DELETE
+b) TRUNCATE
+c) DROP
+d) REMOVE 
+
+
+Completa el query para eliminar la tabla productos: (3 pt) 
+
+______ TABLE productos;
