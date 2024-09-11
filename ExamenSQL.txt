@@ -1,0 +1,19 @@
+Grupo 1
+
+¿Qué comando se utiliza para crear una nueva tabla en SQL? (1 pt)
+a) INSERT
+b) CREATE
+c) ALTER
+d) DELETE
+
+¿Qué comando se usa para agregar una nueva columna a una tabla existente? (1 pt)
+a) ALTER
+b) DROP
+c) UPDATE
+d) SELECT
+
+Completa el query para crear una tabla llamada clientes con columnas id, nombre, y edad: (3 pt)
+ ______ TABLE clientes (
+    id INT,
+    nombre VARCHAR(50),
+    edad INT);
