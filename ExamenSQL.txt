@@ -1,0 +1,19 @@
+Grupo 5
+
+¿Qué comando se usa para otorgar permisos a un usuario en una base de datos? (1 pt)
+
+a) GRANT
+b) REVOKE
+c) GIVE
+d) PERMIT 
+
+¿Qué comando revoca permisos de un usuario en una base de datos? (1 pt)
+
+a) DROP
+b) REVOKE
+c) ALTER
+d) REMOVE 
+
+Completa el query para otorgar permisos de SELECT a un usuario llamado usuario1: (3 pt) 
+
+______ SELECT ON clientes TO usuario1;
