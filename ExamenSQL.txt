@@ -1,0 +1,19 @@
+Grupo 4
+
+¿Cuál de los siguientes comandos es parte de DML? (1 pt)
+
+a) ALTER
+b) INSERT
+c) CREATE
+d) DROP 
+
+¿Qué comando elimina un registro específico de una tabla? (1 pt)
+
+a) DROP
+b) TRUNCATE
+c) DELETE
+d) REMOVE 
+
+Completa el query para eliminar un cliente con id = 1 de la tabla clientes: (3 pt) 
+
+______ FROM clientes WHERE id = 1;
