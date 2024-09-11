@@ -2,14 +2,14 @@ Grupo 7 (Andrea)
 
 ¿Qué comando se utiliza para actualizar múltiples filas en una tabla en SQL? (1 pt)
 
-a) UPDATE
+a) UPDATE 
 b) ALTER
 c) INSERT
-d) TRUNCATE 
+d) TRUNCATE x 
 
 ¿Qué comando se utiliza para seleccionar registros únicos en una consulta? (1 pt)
 
-a) DISTINCT
+a) DISTINCT x
 b) GROUP BY
 c) ORDER BY
 d) UNION 
