@@ -2,7 +2,7 @@ Grupo 4
 
 ¿Cuál de los siguientes comandos es parte de DML? (1 pt)
 
-a) ALTER
+a) ALTER x
 b) INSERT
 c) CREATE
 d) DROP 
@@ -11,9 +11,9 @@ d) DROP 
 
 a) DROP
 b) TRUNCATE
-c) DELETE
+c) DELETE x
 d) REMOVE 
 
 Completa el query para eliminar un cliente con id = 1 de la tabla clientes: (3 pt) 
 
-______ FROM clientes WHERE id = 1;
+Delete  FROM clientes WHERE id = 1;
