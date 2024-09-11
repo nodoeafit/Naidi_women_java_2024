@@ -2,18 +2,18 @@ Grupo 8
 
 ¿Qué comando se utiliza para crear un índice en una tabla en SQL? (1 pt)
 
-a) CREATE INDEX
+a) CREATE INDEX x
 b) CREATE VIEW
 c) ALTER INDEX
 d) CREATE TABLE 
 
 ¿Qué comando se usa para crear una vista en SQL? (1 pt)
 
-a) CREATE VIEW
+a) CREATE VIEW x
 b) CREATE INDEX
 c) CREATE TABLE
 d) CREATE DATABASE 
 
 Completa el query para crear un índice en la columna nombre de la tabla empleados: (3 pt)
 
-______ INDEX idx_nombre ON empleados(nombre);
+CREATE INDEX idx_nombre ON empleados(nombre);
