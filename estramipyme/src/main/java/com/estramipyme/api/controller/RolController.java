@@ -20,38 +20,47 @@ import io.swagger.v3.oas.annotations.parameters.RequestBody;
 @RequestMapping("/api/rol")
 public class RolController {
 
-    private final RolService rolService;
+	private final RolService rolService;
 
-	//Constructor de nuestro servicio
-    public RolController(RolService rolService) {
-        this.rolService = rolService;
-    }
+	// Constructor de nuestro servicio
+	public RolController(RolService rolService) {
+		this.rolService = rolService;
+	}
 
-    @GetMapping("/")
-	@Operation(summary="Obtener Rol", description="Usado para obtener Rol")
+	@GetMapping("/")
+	@Operation(summary = "Obtener Rol", description = "Usado para obtener Rol")
 	public List<RolDto> getAllRoll() {
 
 		List<RolDto> roles = new ArrayList();
 		rolService.getAllRol().forEach(rol -> roles.add(new RolDto(
-			rol.getId(),
-			rol.getNombreRol(),
-			rol.getFechaCreacionRol(),
-			rol.isActiveRol()
-		)));
+				rol.getId(),
+				rol.getNombreRol(),
+				rol.getFechaCreacionRol(),
+				rol.isActiveRol())));
 		return roles;
-	}	
+	}
 
-    // @GetMapping("/{id}")
-	// @Operation(summary="Obtener Rol", description="Usado para obtener un Rol")
-	// public RolDto getRoll(@RequestBody(description="id rol", required=true, ref="2")
-	// @PathVariable Long id) {
-	// 	Deben agregar los DTO con los que van a trabajar dentro de los servicios
-	// }
-	
-	// @PostMapping()
-	// @Operation(summary="Crea rol", description="Usado para crear un rol")
-	// public RolDto createUser(@RequestBody(description="Crear Usuario", required=true)
-	// @RequestAttribute RolDto rol){
-	// 	return "Usuario creado: ".concat(rol);
-	// }
+	@GetMapping("/{id}")
+	@Operation(summary="Obtener Rol", description="Usado para obtener un Rol")
+	public RolDto getRoll(@PathVariable Integer id) {
+		RolDto rolDto = new RolDto();
+		var rol = rolService.getRol(id);
+		rolDto.setId(rol.getId());
+		rolDto.setNombreRol(rol.getNombreRol());
+		rolDto.setFechaCreacionRol(rol.getFechaCreacionRol());
+		rolDto.setIsActiveRol(rol.isActiveRol());
+		return rolDto;
+	}
+
+	@PostMapping()
+	 @Operation(summary="Crea rol", description="Usado para crear un rol")
+	 public RolDto createUser(@RequestBody(description="Crear Usuario", required=true) RolDto rolDto) {
+		// RolDto rolDto = new RolDto();
+		rolDto.setId(rolDto.getId());
+		rolDto.setNombreRol(rolDto.getNombreRol());
+		rolDto.setFechaCreacionRol(rolDto.getFechaCreacionRol());
+		//rolDto.setIsActiveRol(rolDto.isActiveRol());
+		return rolDto;
+		
+	}
 }

@@ -31,6 +31,18 @@ public class RolService {
         return roles;
     }
 
+    public Rol getRol(Integer id) {
+        String sql = "SELECT * FROM \"Rol\" WHERE id = ?";
+        return jdbcTemplate.queryForObject(sql, (rs, rowNum) -> {
+            Rol rol = new Rol();
+            rol.setId(rs.getInt("id"));
+            rol.setNombreRol(rs.getString("nombreRol"));
+            rol.setFechaCreacionRol(rs.getString("fechaCreacionRol"));
+            rol.setActiveRol(rs.getBoolean("isActiveRol"));
+            return rol;
+        }, id);
+    }
+
     // Ejemplo de un método para insertar un nuevo Rol
     public void insertRol(Rol rol) {
         String sql = "INSERT INTO \"Rol\" (\"nombreRol\", \"fechaCreacionRol\", \"isActiveRol\") VALUES (CURRENT_TIMESTAMP, ?, true)";
