@@ -1,0 +1,28 @@
+Grupo 7:
+¿Qué comando se usa para cambiar el nombre de una tabla en SQL? (1 pt)
+
+❌
+a) RENAME X
+b) ALTER
+c) UPDATE
+d) MODIFY 
+
+✅ Alter
+
+¿Qué cláusula se utiliza para ordenar los resultados de una consulta en SQL? (1 pt)
+
+a) ORDER BY X
+b) GROUP BY
+c) WHERE
+d) SELECT 
+
+✅
+
+Completa el query para renombrar la tabla clientes a usuarios: (3 pts)
+__SELECT____ TABLE clientes RENAME TO usuarios;
+❌
+✅ Alter
+
+
+
+Calificación 1.0
