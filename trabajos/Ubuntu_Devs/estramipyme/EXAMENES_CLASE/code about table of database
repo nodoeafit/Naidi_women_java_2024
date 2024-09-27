@@ -1,0 +1,45 @@
+// Use DBML to define your database structure
+// Docs: https://dbml.dbdiagram.io/docs
+
+Table user {
+  id integer
+  name_user varchar
+  last_name varchar
+  kick varchar
+  cellphone int
+  email_user varchar
+  password_user varchar
+  created_at timestamp 
+}
+
+Table rol {
+  id integer [primary key]
+  name_rol varchar
+  active bool
+  created_at timestamp
+}
+
+Table users_roles {
+  id_user integer 
+  id_rol integer [note: 'Un id para y que el usuario tengo varios roles si quiere'] 
+  active bool
+  created_at timestamp
+}
+
+Table log {
+  id integer [primary key]
+  event_type varchar [note: 'tipo de evento, eliminacion, inicio de sesion, actualizacion, etc'] 
+  Time_activity datetime2 [note: 'Tiempo de actividad']
+  user_id integer
+  active bool
+  created_at timestamp
+}
+
+Ref: user.id < rol.id // many-to-one
+
+Ref: rol.id < users_roles.id_rol
+
+Ref: rol.id < users_roles.id_user
+
+
+Ref: users_roles.id_rol < log.id

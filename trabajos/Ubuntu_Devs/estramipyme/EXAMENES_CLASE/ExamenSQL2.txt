@@ -1,0 +1,19 @@
+Grupo 7 (Andrea)
+
+¿Qué comando se utiliza para actualizar múltiples filas en una tabla en SQL? (1 pt)
+
+a) UPDATE 
+b) ALTER
+c) INSERT
+d) TRUNCATE x 
+
+¿Qué comando se utiliza para seleccionar registros únicos en una consulta? (1 pt)
+
+a) DISTINCT x
+b) GROUP BY
+c) ORDER BY
+d) UNION 
+
+Completa el query para actualizar el salario de todos los empleados a 5000 donde el salario es menor a 4000: (3 pt) 
+
+______ empleados SET salario = 5000 WHERE salario < 4000;

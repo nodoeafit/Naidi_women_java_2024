@@ -1,0 +1,13 @@
+/Users/apitoria/source/repos/estramipyme/src/main/java/com/estramipyme/api/InitialApplication.java
+/Users/apitoria/source/repos/estramipyme/src/main/java/com/estramipyme/api/config/SwaggerConfig.java
+/Users/apitoria/source/repos/estramipyme/src/main/java/com/estramipyme/api/controller/InitialController.java
+/Users/apitoria/source/repos/estramipyme/src/main/java/com/estramipyme/api/controller/RolController.java
+/Users/apitoria/source/repos/estramipyme/src/main/java/com/estramipyme/api/controller/SaludoController.java
+/Users/apitoria/source/repos/estramipyme/src/main/java/com/estramipyme/api/dto/RolDto.java
+/Users/apitoria/source/repos/estramipyme/src/main/java/com/estramipyme/api/service/RolService.java
+/Users/apitoria/source/repos/estramipyme/src/main/java/com/estramipyme/repositories/connection/EstramipymeContext.java
+/Users/apitoria/source/repos/estramipyme/src/main/java/com/estramipyme/repositories/interfaces/IConnection.java
+/Users/apitoria/source/repos/estramipyme/src/main/java/com/estramipyme/repositories/models/Logs.java
+/Users/apitoria/source/repos/estramipyme/src/main/java/com/estramipyme/repositories/models/Rol.java
+/Users/apitoria/source/repos/estramipyme/src/main/java/com/estramipyme/repositories/models/RolUser.java
+/Users/apitoria/source/repos/estramipyme/src/main/java/com/estramipyme/repositories/models/User.java
