@@ -6,6 +6,8 @@ import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,8 +29,8 @@ public class RolController {
 		this.rolService = rolService;
 	}
 
-	@GetMapping("/")
-	@Operation(summary = "Obtener Rol", description = "Usado para obtener Rol")
+	@GetMapping("/all")
+	@Operation(summary = " Obtener Rol", description = "Usado para obtener Rol")
 	public List<RolDto> getAllRoll() {
 
 		List<RolDto> roles = new ArrayList();
@@ -41,7 +43,7 @@ public class RolController {
 	}
 
 	@GetMapping("/{id}")
-	@Operation(summary="Obtener Rol", description="Usado para obtener un Rol")
+	@Operation(summary = "Obtener Rol", description = "Usado para obtener un Rol")
 	public RolDto getRoll(@PathVariable Integer id) {
 		RolDto rolDto = new RolDto();
 		var rol = rolService.getRol(id);
@@ -52,15 +54,32 @@ public class RolController {
 		return rolDto;
 	}
 
-	@PostMapping()
-	 @Operation(summary="Crea rol", description="Usado para crear un rol")
-	 public RolDto createUser(@RequestBody(description="Crear Usuario", required=true) RolDto rolDto) {
-		// RolDto rolDto = new RolDto();
-		rolDto.setId(rolDto.getId());
-		rolDto.setNombreRol(rolDto.getNombreRol());
-		rolDto.setFechaCreacionRol(rolDto.getFechaCreacionRol());
-		//rolDto.setIsActiveRol(rolDto.isActiveRol());
+	@PostMapping("/create")
+	@Operation(summary = "Crea rol", description = "Usado para crear un rol")
+	public RolDto insertRol(@RequestBody(description = "Crear Rol", required = true) RolDto rolDto) {
+		rolService.insertRol(rolDto);
 		return rolDto;
 		
 	}
+
+
+
+	@PutMapping("/{id}")
+	@Operation(summary = "Actualizar Rol", description = "Usado para actualizar un Rol")
+	public RolDto updateRol(@PathVariable Integer id, @RequestBody RolDto rolDto) {
+		//RolDto rol = new Rol();
+			rolService.updateRol(rolDto);
+		
+		
+		return rolDto; 
+	}
+
+	@DeleteMapping("api/rol/{id}")
+	@Operation(summary = "Eliminar Rol", description = "Usado para eliminar un Rol")
+	public void deleteRol(@PathVariable Integer id) {
+		rolService.deleteRol(id);
+	}
+
 }
+
+
