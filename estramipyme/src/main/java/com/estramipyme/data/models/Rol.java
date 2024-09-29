@@ -1,4 +1,4 @@
-package com.estramipyme.repositories.models;
+package com.estramipyme.data.models;
 
 import jakarta.persistence.*;
 import lombok.Getter;

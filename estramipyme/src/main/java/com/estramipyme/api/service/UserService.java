@@ -5,8 +5,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
 import com.estramipyme.api.dto.UserDto;
-import com.estramipyme.repositories.models.Rol;
-import com.estramipyme.repositories.models.User;
+import com.estramipyme.data.models.Rol;
+import com.estramipyme.data.models.User;
 
 import java.util.List;
 

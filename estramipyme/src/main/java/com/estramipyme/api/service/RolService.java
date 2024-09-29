@@ -1,92 +1,94 @@
 package com.estramipyme.api.service;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
 import com.estramipyme.api.dto.RolDto;
-import com.estramipyme.repositories.models.Rol;
+import com.estramipyme.data.models.Rol;
+import com.estramipyme.data.repositories.RolRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class RolService {
-    private final JdbcTemplate jdbcTemplate;
-    // Inyecta JdbcTemplate usando el constructor
+
+    private final RolRepository _rolRepository;
+
+    // private final JdbcTemplate jdbcTemplate;
+
     @Autowired
-    public RolService(JdbcTemplate jdbcTemplate) {
-        this.jdbcTemplate = jdbcTemplate;
+    public RolService(RolRepository rolRepository, JdbcTemplate jdbcTemplate) {
+        _rolRepository = rolRepository;
+        // this.jdbcTemplate = jdbcTemplate;
     }
 
-    // Ejemplo de un método para obtener todos los registros de la tabla Rol
-    public List<Rol> getAllRol() {
-        String sql = "SELECT * FROM \"Rol\"";
-        try {
-        jdbcTemplate.queryForList(sql);
-        List<Rol> roles = jdbcTemplate.query(sql, (rs, rowNum) -> {
-            Rol rol = new Rol();
-            rol.setId(rs.getInt("id"));
-            rol.setNombreRol(rs.getString("nombreRol"));
-            rol.setFechaCreacionRol(rs.getString("fechaCreacionRol"));
-            rol.setActiveRol(rs.getBoolean("isActiveRol"));
-            return rol;
-        });
+    public List<RolDto> findAll() {
+        List<RolDto> roles = new ArrayList();
+        List<Rol> rols = _rolRepository.findAll();
+        for (Rol rol : rols) {
+            roles.add(
+                    new RolDto(
+                            rol.getId(),
+                            rol.getNombreRol(),
+                            rol.getFechaCreacionRol(),
+                            rol.isActiveRol()));
+        }
         return roles;
-    }catch (Exception e) {
-        System.err.println("Error al obtener todos los roles: " + e.getMessage());
-        throw e;
     }
-}
 
-    public Rol getRol(Integer id) {
-        String sql = "SELECT * FROM \"Rol\" WHERE id = ?";
+    public Rol findById(Integer id) {
+        // String sql = "SELECT * FROM Rol WHERE id = ?";
         try {
-            return jdbcTemplate.queryForObject(sql, (rs, rowNum) -> {
-                Rol rol = new Rol();
-                rol.setId(rs.getInt("id"));
-                rol.setNombreRol(rs.getString("nombreRol"));
-                rol.setFechaCreacionRol(rs.getString("fechaCreacionRol"));
-                rol.setActiveRol(rs.getBoolean("isActiveRol"));
-                return rol;
-            }, id);
+            var rol = _rolRepository.findById(id);
+            rol.setId(id);
+            rol.setNombreRol(rol.getNombreRol());
+            rol.setActiveRol(rol.isActiveRol());
+            rol.setFechaCreacionRol(rol.getFechaCreacionRol());
+            return rol;
         } catch (Exception e) {
             System.err.println("Error al obtener el rol: " + e.getMessage());
             throw e;
         }
     }
 
-    
-    public void insertRol(RolDto rol) {
-        String sql = "INSERT INTO \"Rol\" (\"nombreRol\", \"fechaCreacionRol\", \"isActiveRol\") VALUES (?, CURRENT_TIMESTAMP, true)";
-
+    public void save(RolDto rolDto) {
         try {
-            jdbcTemplate.update(sql, rol.getNombreRol());
-            
+            var rol = new Rol();
+            rol.setNombreRol(rolDto.getNombreRol());
+           // rol.setActiveRol(isActiveRol: true); 
+            rol.setFechaCreacionRol(rolDto.getFechaCreacionRol());
+            _rolRepository.save(rol);
+    
         } catch (Exception e) {
             System.err.println("Error al insertar el rol: " + e.getMessage());
             throw e;
         }
-   
     }
 
-    public void deleteRol(Integer id) {
-        String sql = "DELETE FROM \"Rol\" WHERE \"id\" = ?";
+    public void delete(Integer id) {
+        // String sql = "DELETE FROM Rol WHERE id = ?";
         try {
-            jdbcTemplate.update(sql, id);
+            _rolRepository.delete(id);
+
         } catch (Exception e) {
             System.err.println("Error al eliminar el rol: " + e.getMessage());
             throw e;
         }
-  
     }
 
-    public void updateRol(RolDto rol) {
-       String sql = "UPDATE \"Rol\" SET \"nombreRol\" = ?, \"isActiveRol\" = ? WHERE \"id\"";
-       try {
-           jdbcTemplate.update(sql, rol.getNombreRol(), rol.getIsActiveRol());
-       } catch (Exception e) {
-           System.err.println("Error al actualizar el rol: " + e.getMessage());
-           throw e;
-       }
+    public void update(RolDto roldDto) {
+        // String sql = "UPDATE Rol SET nombreRol = ?, isActiveRol = ? WHERE id = ?";
+        try {
+            var rol = new Rol();
+            rol.setNombreRol(roldDto.getNombreRol());
+            rol.setActiveRol(roldDto.getIsActiveRol());
+            rol.setId(rol.getId());
+            _rolRepository.update(rol);
+        } catch (Exception e) {
+            System.err.println("Error al actualizar el rol: " + e.getMessage());
+            throw e;
+        }
     }
 }
-
