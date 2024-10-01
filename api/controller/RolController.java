@@ -56,7 +56,9 @@ public class RolController {
 	}
 
 	@PutMapping("/{id}")
+	//documenta operaciomes de una API REST y proporciona una nueva description de que hara
 	@Operation(summary = "Actualizar Rol", description = "Usado para actualizar un Rol")
+	//Captura el valor del id desde la URL. 
 	public RolDto updateRol(@PathVariable Integer id, @RequestBody RolDto rolDto) {
 		// RolDto rol = new Rol();
 		rolService.updateRol(rolDto);
